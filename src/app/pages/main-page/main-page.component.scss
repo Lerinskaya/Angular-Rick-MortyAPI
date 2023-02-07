@@ -1,0 +1,31 @@
+.main {
+    height: calc(100vh - 5rem);
+    .app-name{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        position: relative;
+        margin: 0 0 3rem 0;
+        h1 {
+            color: rgb(32, 35, 41);
+            font-weight: 900;
+            z-index: 1;
+            font-size: 5.625rem;
+            font-family: 'Montserrat', sans-serif;
+            margin: 2rem 0 0 0;
+        }
+        .hero-image {
+            position: absolute;
+            svg {
+                width: 50%;
+                height: 50%;
+                fill: rgb(245, 245, 245);
+            }
+        }
+    }  
+    .random-char {
+        background: rgb(39, 43, 51);
+        height: calc(100vh - 20rem);
+    }  
+}
