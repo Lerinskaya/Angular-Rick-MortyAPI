@@ -20,4 +20,14 @@ export class CharService {
               })
         )
     }
+
+    getRandomChar(): Observable<ICharacter[]> {
+        return this.http.get<ICharacter[]>(`https://rickandmortyapi.com/api/character/${Math.floor(Math.random() * 80)}`)
+        .pipe(
+            retry(2),
+            catchError((err) => {
+                return throwError(()=>err.message)
+              })
+        )
+    }
 }

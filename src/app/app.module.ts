@@ -11,6 +11,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { CharacterPageComponent } from './pages/character-page/character-page.component';
+import { RandomCharComponent } from './components/random-char/random-char.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CharacterPageComponent } from './pages/character-page/character-page.co
     FooterComponent,
     MainPageComponent,
     CharacterPageComponent,
+    RandomCharComponent,
 
   ],
   imports: [
