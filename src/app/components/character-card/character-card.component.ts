@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { ICharacter } from 'src/app/models/character';
 
 @Component({
@@ -7,5 +7,5 @@ import { ICharacter } from 'src/app/models/character';
   styleUrls: ['./character-card.component.scss']
 })
 export class CharacterCardComponent {
-  @Input() character!: ICharacter;
+  @Input() character!: ICharacter; 
 }

@@ -1,3 +1,8 @@
+<app-modal 
+*ngIf="modalService.isVisible$ | async"
+>
+</app-modal>
+
 <div class="container">
     <input 
     type="text" 
@@ -5,12 +10,15 @@
     placeholder="Search character..."
     [(ngModel)]="str"
     >
+
     <div class="cards">
         <app-character-card  
         *ngFor="let character of characters | paginate: { itemsPerPage: itemsPerPage, currentPage: p} | filterCharacters:str" 
         [character]='character'
+        (click)="openModal(character.id)"
         ></app-character-card>
     </div>
+
     <div class="pagination">
         <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
     </div>

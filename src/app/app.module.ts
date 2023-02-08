@@ -13,7 +13,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { CharacterPageComponent } from './pages/character-page/character-page.component';
 import { RandomCharComponent } from './components/random-char/random-char.component';
-import { ChangeColorDirective } from './directives/change-color.directive';
+import { ModalComponent } from './components/modal/modal.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { ChangeColorDirective } from './directives/change-color.directive';
     MainPageComponent,
     CharacterPageComponent,
     RandomCharComponent,
-    ChangeColorDirective,
+    ModalComponent
 
   ],
   imports: [

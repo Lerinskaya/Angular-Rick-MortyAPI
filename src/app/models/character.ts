@@ -8,7 +8,7 @@ export interface ICharacter {
     },
     location?: {
       name: string,
-    }
+    },
     episode: string[],
     image: string,
 }

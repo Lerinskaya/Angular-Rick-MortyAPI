@@ -29,4 +29,14 @@ export class CharService {
               })
         )
     }
+    getById(id:number): Observable<ICharacter> {
+        return this.http.get<ICharacter>(`https://rickandmortyapi.com/api/character/${id}`)
+        .pipe(
+            retry(2),
+            catchError((err) => {
+                return throwError(()=>err.message)
+              })
+        )
+    }
 }
+
