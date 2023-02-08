@@ -22,4 +22,24 @@
         justify-content: center;
         min-height: calc(50vh - 60px);
     }
+    .pagination {
+        margin-top: 2rem;
+        .my-pagination{
+            color: aliceblue;
+        }
+        ::ng-deep {
+            .ngx-pagination {
+                font-weight: 600;
+                font-size: 1.2rem;
+                color: aliceblue !important;
+                .current {
+                    background: rgb(30, 2, 114);
+                  }
+                a, button {
+                    color: darkgrey;
+                }
+            }
+        }
+
+    }
 }

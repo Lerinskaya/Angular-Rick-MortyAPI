@@ -6,6 +6,9 @@ export interface ICharacter {
     origin: {
       name: string,
     },
+    location?: {
+      name: string,
+    }
     episode: string[],
     image: string,
 }

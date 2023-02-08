@@ -2,17 +2,20 @@
     <div class="image"><img src="{{character.image}}" alt="{{character.name}}"></div>
     <div class="description">
          <h3>{{character.name}}</h3>
-         <p>
-            <span class="status-icon"></span>
+         <p [ngSwitch]="character.status">
+            <ng-template ngSwitchCase="Alive"><span class="status-icon green"></span></ng-template>
+            <ng-template ngSwitchCase="Dead"><span class="status-icon red"></span></ng-template>
+            <ng-template ngSwitchDefault><span class="status-icon"></span></ng-template>
+            
             {{character.status}} - {{character.species}}
-        </p>
+         </p>
          <div class="info">
             <span>Last known location:</span>
             <p>{{character.origin.name}}</p>
          </div>
          <div class="info">
             <span>First seen in:</span>
-            <p>{{character.episode[0]}}</p>
+            <p> <a href="{{character.episode[0]}}">{{character.episode[0]}}</a></p>
          </div>
     </div>
 </div>

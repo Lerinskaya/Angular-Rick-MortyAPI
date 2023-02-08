@@ -1,14 +1,18 @@
 <section>
 <div class="card">
-    <div class="image"><img src="../../../assets/481.jpeg" alt="name"></div>
+    <div class="image"><img src="{{char.image}}" alt="{{char.name}}"></div>
     <div class="description">
-         <h3></h3>
-         <p>
-            <span class="status-icon"></span>
-            alive -human
+         <h3>{{char.name}}</h3>
+         <p [ngSwitch]="char.status">
+            <ng-template ngSwitchCase="Alive"><span class="status-icon green"></span></ng-template>
+            <ng-template ngSwitchCase="Dead"><span class="status-icon red"></span></ng-template>
+            <ng-template ngSwitchDefault><span class="status-icon"></span></ng-template>
+                
+            {{char.species}} 
         </p>
          <div class="info">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet, illum!</p>
+            <span class="span">Current location:</span>
+            <p>{{char.location?.name}}</p>
          </div>
     </div>
 </div>
@@ -16,7 +20,7 @@
     <div class="description">
          <p>Random character for today!</p>
          <p>Do you want to know him better?</p>
-         <span>Or choose another one:
+         <span class="span">Or choose another one:
         </span>
          <button (click)="getChar()">Try!</button>
     </div>

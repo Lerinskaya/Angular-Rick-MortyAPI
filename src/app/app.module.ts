@@ -7,11 +7,13 @@ import { CharacterCardComponent } from './components/character-card/character-ca
 import { CardListComponent } from './components/card-list/card-list.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
+import {NgxPaginationModule} from 'ngx-pagination';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { CharacterPageComponent } from './pages/character-page/character-page.component';
 import { RandomCharComponent } from './components/random-char/random-char.component';
+import { ChangeColorDirective } from './directives/change-color.directive';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,15 @@ import { RandomCharComponent } from './components/random-char/random-char.compon
     MainPageComponent,
     CharacterPageComponent,
     RandomCharComponent,
+    ChangeColorDirective,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
