@@ -1,17 +1,21 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpParams } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Observable, catchError, throwError, retry } from "rxjs";
 import { ICharacter } from "../models/character";
+import { Unsubscribe } from "./unsubscribe.service";
 
 @Injectable({
     providedIn: 'root'
 })
-export class CharService {
+export class CharService extends Unsubscribe{
+   private url =' https://rickandmortyapi.com/api/character/'
   
-    constructor(private http: HttpClient){}
+    constructor(private http: HttpClient){
+        super();
+    }
 
-    getAll(): Observable<ICharacter[]> {
-        return this.http.get<ICharacter[]>('https://rickandmortyapi.com/api/character/1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,21,22')
+    public getAll(): Observable<ICharacter[]> {
+       return this.http.get<ICharacter[]>(`${this.url}1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,21,22`)
         .pipe(
             retry(2),
             catchError((err) => {
@@ -20,8 +24,8 @@ export class CharService {
         )
     }
 
-    getRandomChar(): Observable<ICharacter> {
-        return this.http.get<ICharacter>(`https://rickandmortyapi.com/api/character/${Math.floor(Math.random() * 100)}`)
+    public getRandomChar(): Observable<ICharacter> {
+        return this.http.get<ICharacter>(`${this.url}${Math.floor(Math.random() * 100)}`)
         .pipe(
             retry(2),
             catchError((err) => {
@@ -29,8 +33,8 @@ export class CharService {
               })
         )
     }
-    getById(id:number): Observable<ICharacter> {
-        return this.http.get<ICharacter>(`https://rickandmortyapi.com/api/character/${id}`)
+    public getById(id:number): Observable<ICharacter> {
+        return this.http.get<ICharacter>(`${this.url}${id}`)
         .pipe(
             retry(2),
             catchError((err) => {

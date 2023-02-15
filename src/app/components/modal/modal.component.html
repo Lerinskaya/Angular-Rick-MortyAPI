@@ -1,11 +1,12 @@
 <div class="modal-bg"
-(click)="modalService.close()"></div>
+(click)="closeModal()"></div>
 
 <div class="modal">
-    <ng-content></ng-content>
-    <h3>{{character.name}}</h3>
-    <!-- <div class="description">
-        <h3>{{character.name}}</h3>
+    <div class="description">
+   <div class="img-with-name">
+    <div class="image"><img [src]="character.image" [alt]="character.name"></div>
+    <div class="main-info">
+      <h3>{{character.name}}</h3>
         <p [ngSwitch]="character.status">
            <ng-template ngSwitchCase="Alive"><span class="status-icon green"></span></ng-template>
            <ng-template ngSwitchCase="Dead"><span class="status-icon red"></span></ng-template>
@@ -13,14 +14,18 @@
            
            {{character.status}} - {{character.species}}
         </p>
+        <p class="gender"><span>Gender:</span> {{character.gender}}</p>
+      </div>
+      </div>
         <div class="info">
            <span>Last known location:</span>
            <p>{{character.origin.name}}</p>
-        </div>
-        <div class="info">
+           <span>Was created:</span>
+           <p>{{character.created | date: 'dd/MM/yyyy'}}</p>
            <span>First seen in:</span>
            <p> <a href="{{character.episode[0]}}"> episode {{character.episode[0][character.episode[0].length - 1]}}</a></p>
         </div>
-   </div> -->
+           <button> <a href="{{character.url}}"> Learn more...</a></button>
+   </div>
 
 </div>

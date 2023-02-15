@@ -9,3 +9,20 @@ a {
     text-decoration: none;
     color: black;
 }
+button {
+    background-color: cadetblue;
+    padding: 0.5rem 2rem;
+    color: aliceblue;
+    border-radius: 5px;
+    border: 2px solid gray;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    &:hover {
+        background-color: rgb(129, 201, 203);
+    }
+    &:active {
+        background-color: rgb(173, 228, 229);
+        color: gray;
+    }
+}

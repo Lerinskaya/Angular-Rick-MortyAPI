@@ -1,29 +1,33 @@
-<section>
-<div class="card">
-    <div class="image"><img src="{{char.image}}" alt="{{char.name}}"></div>
-    <div class="description">
-         <h3>{{char.name}}</h3>
-         <p [ngSwitch]="char.status">
-            <ng-template ngSwitchCase="Alive"><span class="status-icon green"></span></ng-template>
-            <ng-template ngSwitchCase="Dead"><span class="status-icon red"></span></ng-template>
-            <ng-template ngSwitchDefault><span class="status-icon"></span></ng-template>
-                
-            {{char.species}} 
-        </p>
-         <div class="info">
-            <span class="span">Current location:</span>
-            <p>{{char.location?.name}}</p>
-         </div>
+<section *ngIf="char">
+    <div class="card">
+        <div class="image">
+            <p *ngIf="loading" class="loader"> <app-loader></app-loader> </p>
+            <img *ngIf="!loading" [src]="char.image" [alt]="char.name">
+        </div>
+        <div class="description">
+             <h3>{{char.name}}</h3>
+             <p [ngSwitch]="char.status">
+                <ng-template ngSwitchCase="Alive"><span class="status-icon green"></span></ng-template>
+                <ng-template ngSwitchCase="Dead"><span class="status-icon red"></span></ng-template>
+                <ng-template ngSwitchDefault><span class="status-icon"></span></ng-template>
+                    
+                {{char.species}} 
+            </p>
+             <div class="info">
+                <span class="span">Current location:</span>
+                <p>{{char.location?.name}}</p>
+             </div>
+        </div>
     </div>
-</div>
-<div class="card-try">
-    <div class="description">
-         <p>Random character for today!</p>
-         <p>Do you want to know him better?</p>
-         <span class="span">Or choose another one:
-        </span>
-         <button (click)="getChar()">Try!</button>
+    <div class="card-try">
+        <div class="description">
+             <p>Random character for today!</p>
+             <p>Do you want to know him better?</p>
+             <span class="span">Or choose another one:
+            </span>
+             <button (click)="getChar()">Try!</button>
+        </div>
+        <div class="image"><img src="../../../assets/images/34928-1-19.png" alt="rick"></div>
     </div>
-    <div class="image"><img src="../../../assets/34928-1-19.png" alt="rick"></div>
-</div>
-</section>
+    </section>
+    

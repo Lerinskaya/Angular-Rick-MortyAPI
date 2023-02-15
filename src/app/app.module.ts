@@ -14,6 +14,7 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { CharacterPageComponent } from './pages/character-page/character-page.component';
 import { RandomCharComponent } from './components/random-char/random-char.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ModalComponent } from './components/modal/modal.component';
     MainPageComponent,
     CharacterPageComponent,
     RandomCharComponent,
-    ModalComponent
+    ModalComponent,
+    LoaderComponent
 
   ],
   imports: [

@@ -10,26 +10,24 @@ import { Unsubscribe } from 'src/app/services/unsubscribe.service';
   styleUrls: ['./random-char.component.scss']
 })
 export class RandomCharComponent extends Unsubscribe implements OnInit{
-  @Input() char!: ICharacter;
+  public char!: ICharacter;
+  @Input() loading!: boolean;
 
   constructor(private charService: CharService){
     super();
   }
 
   ngOnInit() {
-    this.charService.getRandomChar()
-    .pipe(takeUntil(this.destroy$))
-    .subscribe(char =>{
-      this.char = char;
-    }
-    )
+    this.getChar();
   }
-  getChar() {
+
+public getChar() {
+  this.loading = true;
     this.charService.getRandomChar()
     .pipe(takeUntil(this.destroy$))
     .subscribe(char =>{
-      console.log(this.char)
       this.char = char;
+      this.loading = false;
     }
     )
   }

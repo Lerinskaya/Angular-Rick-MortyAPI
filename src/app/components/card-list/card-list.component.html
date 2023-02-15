@@ -1,26 +1,35 @@
-<app-modal 
-*ngIf="modalService.isVisible$ | async"
->
+<div *ngIf="loader" class="modal">
+    <p class="loader-modal"><app-loader></app-loader> </p>
+</div>
+<app-modal
+*ngIf="isVisible && !loader" 
+[character]='character'
+(btnClick)="onChange($event)">
 </app-modal>
 
 <div class="container">
-    <input 
-    type="text" 
-    class="search-input" 
-    placeholder="Search character..."
-    [(ngModel)]="str"
-    >
 
-    <div class="cards">
-        <app-character-card  
-        *ngFor="let character of characters | paginate: { itemsPerPage: itemsPerPage, currentPage: p} | filterCharacters:str" 
-        [character]='character'
-        (click)="openModal(character.id)"
-        ></app-character-card>
-    </div>
+    <p *ngIf="loading" class="loader"> <app-loader></app-loader> </p>
 
-    <div class="pagination">
-        <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
-    </div>
+    <ng-container *ngIf="!loading">
+
+        <input 
+        type="text" 
+        class="search-input" 
+        placeholder="Search character..."
+        [(ngModel)]="str"
+        >
+
+        <div class="cards">
+            <app-character-card  
+            *ngFor="let character of characters | paginate: { itemsPerPage: itemsPerPage, currentPage: pageNumber} | filterCharacters:str" 
+            [character]='character'
+            (click)="openModal(character.id)"
+            ></app-character-card>
+        </div>
+    
+        <div class="pagination">
+            <pagination-controls class="my-pagination" (pageChange)="pageNumber = $event"></pagination-controls>
+        </div>
+    </ng-container>
 </div>
-

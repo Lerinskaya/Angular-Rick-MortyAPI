@@ -1,14 +1,17 @@
 export interface ICharacter {
-    id: number,
+  id: number,
+  name: string,
+  status: string,
+  species: string,
+  origin: {
     name: string,
-    status: string,
-    species: string,
-    origin: {
-      name: string,
-    },
-    location?: {
-      name: string,
-    },
-    episode: string[],
-    image: string,
+  },
+  gender?:string,
+  location?: {
+    name: string,
+  },
+  url?: string,
+  created?:string,
+  episode: string[],
+  image: string,
 }

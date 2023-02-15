@@ -1,4 +1,5 @@
 import { ICharacter } from "../models/character";
+import { IResponse } from "../models/response";
 
 export const characters: ICharacter[] = []
-// export const character: ICharacter = {};
+// export const response: IResponse = {};
