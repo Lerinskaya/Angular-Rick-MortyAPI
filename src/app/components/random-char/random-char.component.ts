@@ -18,6 +18,7 @@ export class RandomCharComponent extends Unsubscribe implements OnInit{
   }
 
   ngOnInit() {
+
     this.getChar();
   }
 

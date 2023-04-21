@@ -4,7 +4,7 @@ import { CharService } from 'src/app/services/char.service';
 import { Unsubscribe } from 'src/app/services/unsubscribe.service';
 import {characters as data} from '../../data/character-data';
 import { takeUntil } from 'rxjs/operators';
-import { PAGE_NUMBER, PER_PAGE } from 'src/app/data/vars';
+// import { PAGE_NUMBER, PER_PAGE } from 'src/app/data/vars';
 
 @Component({
   selector: 'app-card-list',
@@ -20,8 +20,8 @@ export class CardListComponent extends Unsubscribe implements OnInit{
   public loader = false;
 
   public str = '';
-  public pageNumber = PAGE_NUMBER
-  public itemsPerPage = PER_PAGE;
+  public pageNumber = 1
+  public itemsPerPage = 6;
   public totalChar:unknown;
 
   constructor(private charService: CharService){
