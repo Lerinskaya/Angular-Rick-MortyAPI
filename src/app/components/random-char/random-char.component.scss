@@ -11,7 +11,7 @@ section {
         border-radius: 0.5rem 0 0 0.5rem;
         box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px -1px, rgb(0 0 0 / 6%) 0px 2px 4px -1px;
         .image{
-            min-width: 220px;
+            max-width: 220px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -99,4 +99,38 @@ section {
         }
     }
     
+}
+
+@media (max-width: 1100px) { 
+    section {
+        flex-direction: column-reverse;
+    }
+}
+
+@media (max-width: 560px) { 
+    section {
+        .card {
+            width: 400px;
+            height: 200px;
+            font-size: 1rem;
+            .image {
+                width: 150px;
+            }
+            .description {
+                h3 {
+                    font-size: 18px;
+                }
+            }
+        }
+        .card-try{
+            width: 400px;
+            height: 200px;
+            font-size: 1rem;
+            .description {
+                h3 {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
 }

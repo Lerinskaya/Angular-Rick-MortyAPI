@@ -30,3 +30,22 @@
     padding-top: 3rem;
     height:  calc(100vh - 19.5rem);;
 } 
+
+@media (max-width: 750px) { 
+    .main {
+        .app-name {
+            h1 {
+                font-size: 3rem;
+            }
+            .hero-image {
+                svg {
+                    width: 36%;
+                    height: 35%;
+                }
+            }
+        }
+    }
+    .random-char {
+        height:  calc(100vh - 15rem);;
+    } 
+}
